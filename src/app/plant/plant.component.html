@@ -1,1 +1,49 @@
-<p>plant works!</p>
+<h1>Plant Management</h1>
+<div class="table-container">
+    <button (click)="addDialog()"> Add Plant</button>
+    <input type="text" placeholder="search plants" (keyup)="applyFilter($event)">
+    <table mat-table  class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="latitude">
+            <th mat-header-cell *matHeaderCellDef> Latitude </th>
+            <td mat-cell *matCellDef="let element">{{element.latitude}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="longitude">
+            <th mat-header-cell *matHeaderCellDef> Longitude </th>
+            <td mat-cell *matCellDef="let element">{{element.longitude}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="yearStartDate">
+            <th mat-header-cell *matHeaderCellDef> YearStartDate </th>
+            <td mat-cell *matCellDef="let element">{{element.yearStartDate}}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="yearEndDate">
+            <th mat-header-cell *matHeaderCellDef> YearEndDate </th>
+            <td mat-cell *matCellDef="let element">{{element.yearEndDate}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    <a mat-raied-button color="primary">Edit</a>
+                    <a mat-raied-button color="primary">Delete</a>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+        <tr mat-row *matRowDef="let row;columns:displayColumns"></tr>
+    </table>
+</div>
